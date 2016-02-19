@@ -8,14 +8,14 @@ int** crear();
 void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4);
 void borrar(int** &arreglo, int size);
 void imprimir(int**);
-int validar(int**);
+int validar(int**,int &v);
 
 int main(int argc,char* argv[]){
 	int v=0,c1,c2,c3,c4,juga;
 	int** arreglo = crear();
 	cout << "El tablero es 7x7 pero usted debe ingresar las cordenadas del 0 al 6 ingresando primero la fila despues la columna debera hacer esto 2 veces la primera para elejir la pieza que desea mover la segunda para decidir donde moverlo" << endl;
 
-	while(v==0){
+	while(v!=0){
 		imprimir(arreglo);
 		juga=1;
 		cout << "jugador 1 (usted es los -> '+') es su turno" << endl;
@@ -53,7 +53,7 @@ int main(int argc,char* argv[]){
 		cin >> c4;
 		cout << endl;
 		movimiento(arreglo,7,juga,c1,c2,c3,c4);
-		v=1;
+		v=validar(arreglo,v);
 	}
 	
 	borrar(arreglo, 7);
@@ -61,10 +61,36 @@ int main(int argc,char* argv[]){
 	return 0;
 }
 
+int validar(int** x,int &v){
+	int size = 7,mas,numeral,zero;
+	for (int i = 0; i < size; i++){
+		for (int j = 0; j < size; j++){
+			if(x[i][j] == 0){
+				zero++;
+			}else if(x[i][j] == 1){
+				mas++;
+			}else if(x[i][j] == 2){
+				numeral++;
+			} 
+		}
+	}	
+
+	if(zero==0){
+		if(mas>numeral){
+			cout << "gano numero 1";		
+		}else{
+			cout << "gano numero 2";
+		}
+	}
+	return zero;
+}
+
 void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 	if(juga==1){
 		if(arreglo[c1][c2]==1 && arreglo[c3][c4]==0){
 			if(c3-c1==1 && c2==c4){
+				arreglo[c1][c2]=0;
+				arreglo[c3][c4]=1;
 				if(arreglo[c3+1][c4]==2){
 					arreglo[c3+1][c4]=1;
 				}
@@ -94,6 +120,8 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=1;
 
 			}else if(c1-c3==-1 && c2==c4){
+				arreglo[c1][c2]=0;
+				arreglo[c3][c4]=1;
 				if(arreglo[c3+1][c4]==2){
 					arreglo[c3+1][c4]=1;
 				}
@@ -123,6 +151,8 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=1;
 
 			}else if(c1==c3 && c4-c2==1){
+				arreglo[c1][c2]=0;
+				arreglo[c3][c4]=1;
 				if(arreglo[c3+1][c4]==2){
 					arreglo[c3+1][c4]=1;
 				}
@@ -152,6 +182,8 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=1;
 
 			}else if(c1==c3 && c2-c4==-1){
+				arreglo[c1][c2]=0;
+				arreglo[c3][c4]=1;
 				if(arreglo[c3+1][c4]==2){
 					arreglo[c3+1][c4]=1;
 				}
@@ -181,6 +213,8 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=1;
 
 			}else if(c3-c1==1 && c4-c2==1){
+				arreglo[c1][c2]=0;
+				arreglo[c3][c4]=1;
 				if(arreglo[c3+1][c4]==2){
 					arreglo[c3+1][c4]=1;
 				}
@@ -209,6 +243,8 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c1][c2]=0;
 				arreglo[c3][c4]=1;
 			}else if(c1-c3==-1 && c2-c4==-1){
+				arreglo[c1][c2]=0;
+				arreglo[c3][c4]=1;
 				if(arreglo[c3+1][c4]==2){
 					arreglo[c3+1][c4]=1;
 				}
@@ -243,6 +279,8 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 	}else if(juga==2){
 		if(arreglo[c1][c2]==2 && arreglo[c3][c4]==0){
 			if(c3-c1==1 && c2==c4){
+				arreglo[c1][c2]=0;
+				arreglo[c3][c4]=2;
 				if(arreglo[c3+1][c4]==1){
 					arreglo[c3+1][c4]=2;
 				}
@@ -272,6 +310,8 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=2;
 
 			}else if(c1-c3==-1 && c2==c4){
+				arreglo[c1][c2]=0;
+				arreglo[c3][c4]=2;
 				if(arreglo[c3+1][c4]==1){
 					arreglo[c3+1][c4]=2;
 				}
@@ -301,6 +341,8 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=2;
 
 			}else if(c1==c3 && c4-c2==1){
+				arreglo[c1][c2]=0;
+				arreglo[c3][c4]=2;
 				if(arreglo[c3+1][c4]==1){
 					arreglo[c3+1][c4]=2;
 				}
@@ -330,6 +372,8 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=2;
 
 			}else if(c1==c3 && c2-c4==-1){
+				arreglo[c1][c2]=0;
+				arreglo[c3][c4]=2;
 				if(arreglo[c3+1][c4]==1){
 					arreglo[c3+1][c4]=2;
 				}
@@ -359,6 +403,8 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=2;
 
 			}else if(c3-c1==1 && c4-c2==1){
+				arreglo[c1][c2]=0;
+				arreglo[c3][c4]=2;
 				if(arreglo[c3+1][c4]==1){
 					arreglo[c3+1][c4]=2;
 				}
@@ -387,6 +433,8 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c1][c2]=0;
 				arreglo[c3][c4]=2;
 			}else if(c1-c3==-1 && c2-c4==-1){
+				arreglo[c1][c2]=0;
+				arreglo[c3][c4]=2;
 				if(arreglo[c3+1][c4]==1){
 					arreglo[c3+1][c4]=2;
 				}
