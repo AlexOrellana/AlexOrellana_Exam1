@@ -11,7 +11,7 @@ void imprimir(int**);
 int validar(int**,int &v);
 
 int main(int argc,char* argv[]){
-	int v=0,c1,c2,c3,c4,juga;
+	int v=1,c1,c2,c3,c4,juga;
 	int** arreglo = crear();
 	cout << "El tablero es 7x7 pero usted debe ingresar las cordenadas del 0 al 6 ingresando primero la fila despues la columna debera hacer esto 2 veces la primera para elejir la pieza que desea mover la segunda para decidir donde moverlo" << endl;
 
@@ -89,7 +89,7 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 	if(juga==1){
 		if(arreglo[c1][c2]==1 && arreglo[c3][c4]==0){
 			if(c3-c1==1 && c2==c4){
-				arreglo[c1][c2]=0;
+				
 				arreglo[c3][c4]=1;
 				if(arreglo[c3+1][c4]==2){
 					arreglo[c3+1][c4]=1;
@@ -120,7 +120,7 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=1;
 
 			}else if(c1-c3==-1 && c2==c4){
-				arreglo[c1][c2]=0;
+				
 				arreglo[c3][c4]=1;
 				if(arreglo[c3+1][c4]==2){
 					arreglo[c3+1][c4]=1;
@@ -151,7 +151,7 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=1;
 
 			}else if(c1==c3 && c4-c2==1){
-				arreglo[c1][c2]=0;
+				
 				arreglo[c3][c4]=1;
 				if(arreglo[c3+1][c4]==2){
 					arreglo[c3+1][c4]=1;
@@ -182,7 +182,7 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=1;
 
 			}else if(c1==c3 && c2-c4==-1){
-				arreglo[c1][c2]=0;
+				
 				arreglo[c3][c4]=1;
 				if(arreglo[c3+1][c4]==2){
 					arreglo[c3+1][c4]=1;
@@ -213,7 +213,7 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=1;
 
 			}else if(c3-c1==1 && c4-c2==1){
-				arreglo[c1][c2]=0;
+				
 				arreglo[c3][c4]=1;
 				if(arreglo[c3+1][c4]==2){
 					arreglo[c3+1][c4]=1;
@@ -243,7 +243,7 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c1][c2]=0;
 				arreglo[c3][c4]=1;
 			}else if(c1-c3==-1 && c2-c4==-1){
-				arreglo[c1][c2]=0;
+				
 				arreglo[c3][c4]=1;
 				if(arreglo[c3+1][c4]==2){
 					arreglo[c3+1][c4]=1;
@@ -279,7 +279,7 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 	}else if(juga==2){
 		if(arreglo[c1][c2]==2 && arreglo[c3][c4]==0){
 			if(c3-c1==1 && c2==c4){
-				arreglo[c1][c2]=0;
+				
 				arreglo[c3][c4]=2;
 				if(arreglo[c3+1][c4]==1){
 					arreglo[c3+1][c4]=2;
@@ -310,7 +310,7 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=2;
 
 			}else if(c1-c3==-1 && c2==c4){
-				arreglo[c1][c2]=0;
+				
 				arreglo[c3][c4]=2;
 				if(arreglo[c3+1][c4]==1){
 					arreglo[c3+1][c4]=2;
@@ -341,7 +341,7 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=2;
 
 			}else if(c1==c3 && c4-c2==1){
-				arreglo[c1][c2]=0;
+				
 				arreglo[c3][c4]=2;
 				if(arreglo[c3+1][c4]==1){
 					arreglo[c3+1][c4]=2;
@@ -372,7 +372,7 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=2;
 
 			}else if(c1==c3 && c2-c4==-1){
-				arreglo[c1][c2]=0;
+				
 				arreglo[c3][c4]=2;
 				if(arreglo[c3+1][c4]==1){
 					arreglo[c3+1][c4]=2;
@@ -403,7 +403,7 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c3][c4]=2;
 
 			}else if(c3-c1==1 && c4-c2==1){
-				arreglo[c1][c2]=0;
+				
 				arreglo[c3][c4]=2;
 				if(arreglo[c3+1][c4]==1){
 					arreglo[c3+1][c4]=2;
@@ -433,7 +433,7 @@ void movimiento(int** &arreglo, int size,int juga,int c1,int c2,int c3,int c4){
 				arreglo[c1][c2]=0;
 				arreglo[c3][c4]=2;
 			}else if(c1-c3==-1 && c2-c4==-1){
-				arreglo[c1][c2]=0;
+				
 				arreglo[c3][c4]=2;
 				if(arreglo[c3+1][c4]==1){
 					arreglo[c3+1][c4]=2;
@@ -499,6 +499,7 @@ int** crear(){
 
 void imprimir(int** x){
 	cout << endl;
+	cout << " 0  1  2  3  4  5  6  " << endl;
 	int size = 7;
 	for (int i = 0; i < size; i++){
 		for (int j = 0; j < size; j++){
@@ -510,7 +511,23 @@ void imprimir(int** x){
 				cout << " # ";
 			} 
 		}
-		cout << endl;
+		if(i==0){
+			cout << " 0" << endl;
+		}else if(i==1){
+			cout << " 1" << endl;
+		}else if(i==2){
+			cout << " 2" << endl;
+		}else if(i==3){
+			cout << " 3" << endl;
+		}else if(i==4){
+			cout << " 4" << endl;
+		}else if(i==5){
+			cout << " 5" << endl;
+		}else if(i==6){
+			cout << " 6" << endl;
+		}else if(i==7){
+			cout << " 7" << endl;
+		}
 	}
 	cout << endl;
 }
